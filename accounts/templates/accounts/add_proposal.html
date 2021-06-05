@@ -1,0 +1,166 @@
+
+{% load static %}
+
+<!doctype html>
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang=""> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Add Proposal</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'css/scrollbar.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontawesome/fontawesome-all.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+	<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/tipso.css' %}">
+	<link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+	<link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/color.css' %}">
+	<link rel="stylesheet" href="{% static 'css/transitions.css' %}">
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+	<script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+</head>
+<body class="wt-login">
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<!-- Preloader Start -->
+	<div class="preloader-outer">
+		<div class="loader"></div>
+	</div>
+	<!-- Preloader End -->
+	<!--Wrapper Start-->
+	<div id="wt-wrapper" class="wt-wrapper wt-haslayout">
+		<!--Content Wrapper Start-->
+		<div class="wt-contentwrapper">
+			<!--Header Start-->
+			{% include 'accounts/header.html' %}
+			<!--Header End-->
+			<!--Inner Home Banner Start-->
+			<div class="wt-haslayout wt-innerbannerholder">
+				<div class="container">
+					<div class="row justify-content-md-center">
+						<div class="col-xs-12 col-sm-12 col-md-8 push-md-2 col-lg-6 push-lg-3">
+							<div class="wt-innerbannercontent">
+							<div class="wt-title"><h2>Job Proposal</h2></div>
+							<ol class="wt-breadcrumb">
+								<li><a href="index-2.html">Home</a></li>
+								<li><a href="javascript:void(0);">Jobs</a></li>
+								<li><a href="javascript:void(0);">Job Detail</a></li>
+								<li class="wt-active">Job Proposal</li>
+							</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Inner Home End-->
+			<!--Main Start-->
+			<main id="wt-main" class="wt-main wt-haslayout wt-innerbgcolor">
+				<div class="wt-haslayout wt-main-section">
+					<!-- User Listing Start-->
+					<div class="container">
+						<div class="row justify-content-md-center">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 push-lg-2">
+								
+								<div class="wt-proposalholder">
+									<span class="wt-featuredtag"><img src="{% static 'images/featured.png' %}" alt="img description" data-tipso="Plus Member" class="template-content tipso_style"></span>
+									<div class="wt-proposalhead">
+										<h2>{{job.jobTitle}}</h2>
+										<ul class="wt-userlisting-breadcrumb wt-userlisting-breadcrumbvtwo">
+											<li><span><i class="fa fa-dollar-sign"></i><i class="fa fa-dollar-sign"></i><i class="fa fa-dollar-sign"></i> {{job.experience}}</span></li>
+											<li><span>{{job.created_by.userprofile.country}}</span></li>
+											<li><span><i class="far fa-folder"></i> Type: Fixed</span></li>
+											<li><span><i class="far fa-clock"></i> Duration: {{job.duration}}</span></li>
+										</ul>
+									</div>
+								</div>
+								<div class="wt-proposalamount-holder">
+									<div class="wt-title">
+										<h2>Proposal Amount</h2>
+									</div>
+                                    <form method="POST" action="">
+                                        {% csrf_token %}
+									<div class="wt-proposalamount accordion">
+										<div class="form-group">
+											<span>( <i class="fa fa-dollar-sign"></i> )</span>
+											<input type="number" name="amount" class="form-control" placeholder="Enter Your Proposal Amount">
+											
+											<em>Total amount the client will see on your proposal</em>
+										</div>
+										
+									</div>
+                                    <div class="container">
+                                        <div class="form-group ">
+                                            <span class="wt-select">
+                                                <select name="duration">
+                                                    <option value="02 Weeks">I CAN FINISH THIS PROJECT IN: 02 Weeks</option>
+                                                    <option value="03 Weeks">I CAN FINISH THIS PROJECT IN: 03 Weeks</option>
+                                                    <option value="04 Weeks">I CAN FINISH THIS PROJECT IN: 04 Weeks</option>
+                                                    <option value="05 Weeks">I CAN FINISH THIS PROJECT IN: 05 Weeks</option>
+                                                    <option value="06 Weeks">I CAN FINISH THIS PROJECT IN: 06 Weeks</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="bid" placeholder="Add Description*"></textarea>
+                                        </div>
+                                    </div>
+                                    
+									<div>
+
+                                    </div>	
+                                    
+                                    <div class="wt-updatall">
+                                        <i class="ti-announcement"></i>
+                                        
+                                        <button style="margin-left: 2%;" type="submit"  class="wt-btn" >Send Proposal</button>
+                                    </div>
+										
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- User Listing End-->
+				</div>
+			</main>
+			<!--Main End-->
+			<!--Footer Start-->
+			{% include 'accounts/footer.html' %}
+			<!--Footer End-->
+		</div>
+		<!--Content Wrapper End-->
+	</div>
+	<!--Wrapper End-->
+	<script src="{% static 'js/vendor/jquery-3.3.1.js' %}"></script>
+	<script src="{% static 'js/vendor/jquery-library.js' %}"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/chosen.jquery.js' %}"></script>
+	<script src="{% static 'js/tilt.jquery.js' %}"></script>
+	<script src="{% static 'js/scrollbar.min.js' %}"></script>
+	<script src="{% static 'js/prettyPhoto.js' %}"></script>
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script src="{% static 'js/readmore.js' %}"></script>
+	<script src="{% static 'js/countTo.js' %}"></script>
+	<script src="{% static 'js/appear.js' %}"></script>
+	<script src="{% static 'js/tipso.js' %}"></script>
+	<script src="{% static 'js/jRate.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+
+</html>

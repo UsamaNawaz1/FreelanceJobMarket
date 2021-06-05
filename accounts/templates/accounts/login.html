@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Login - Worktern</title>
+
+    
+    <!-- Main CSS-->
+    <link href="{% static 'css/authi.css' %}" rel="stylesheet" media="all">
+
+
+</head>
+<style>
+    .box-shadow:after {
+    content: "";
+    width: 150px;
+    height: 1px;
+    margin-top: 88px;
+    margin-left: -75px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+    -webkit-box-shadow: 0px 0px 8px 2px #000000;
+       -moz-box-shadow: 0px 0px 8px 2px #000000;
+            box-shadow: 0px 0px 8px 2px #000000;
+}
+</style>
+<body>
+    <div class="page-wrapper  p-t-130 p-b-100 font-poppins" >
+        <div class="wrapper wrapper--w680" >
+            <div class="card card-4 box-shadow" style="background-color: black;">
+                <div class="card-body">
+                    {% for message in messages %}
+                            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h5 style="color: white;">{{ message | safe }}</h5>
+                            </div>
+                    {% endfor %}
+                    <h2 style="color: white; font-weight: bolder;" class="title">Login</h2>
+                    <form  method="POST">
+                        {% csrf_token %}
+                        <div class="row row-space">
+                            <div style="width: 100%;">
+                                <div class="input-group">
+                                    
+                                    <input class="input--style-4" type="text" placeholder="Username"  name="username" id="username">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <br>
+                        <div class="row row-space">
+                            <div style="width: 100%;">
+                                <div class="input-group">
+                                    
+                                    <input class="input--style-4" type="password" placeholder="Password"  name="password1" id="password1"><br><br>
+                                    <a style="color: white; " href="{% url 'reset_password' %}"><small id="emailHelp" class="form-text text-muted">Forget Password?</small></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="p-t-15" style="padding-bottom: 5%;">
+                            <button class="btn btn--radius-2 btn--green" style="float: right;" type="submit">Login</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Main JS-->
+    <script src="{% static 'js/global.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

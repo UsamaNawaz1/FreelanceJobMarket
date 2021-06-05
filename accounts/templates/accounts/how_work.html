@@ -1,0 +1,594 @@
+
+{% load static %}
+
+<!doctype html>
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang=""> <!--<![endif]-->
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>How it Works</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'css/scrollbar.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontawesome/fontawesome-all.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+	<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/tipso.css' %}">
+	<link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+	<link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/color.css' %}">
+	<link rel="stylesheet" href="{% static 'css/transitions.css' %}">
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+	<script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+</head>
+<body class="wt-login">
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<!-- Wrapper Start -->
+	<!-- Preloader Start -->
+	<div class="preloader-outer">
+		<div class="loader"></div>
+	</div>
+	<!-- Preloader End -->
+	<div id="wt-wrapper" class="wt-wrapper wt-haslayout">
+		<!--Content Wrapper Start-->
+		<!--Header Start-->
+		{% include 'accounts/header.html' %}
+		<!--Header End-->
+		<!--Inner Home Banner Start-->
+		<div class="wt-haslayout wt-innerbannerholder">
+			<div class="container">
+				<div class="row justify-content-md-center">
+					<div class="col-xs-12 col-sm-12 col-md-8 push-md-2 col-lg-6 push-lg-3">
+						<div class="wt-innerbannercontent">
+							<div class="wt-title"><h2>See How It Works?</h2></div>
+							<ol class="wt-breadcrumb">
+								<li><a href="{% url 'home' %}">Home</a></li>
+								<li class="wt-active">How It Works</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Inner Home End-->
+		<!--Main Start-->
+		<main id="wt-main" class="wt-main wt-haslayout wt-innerbgcolor">
+			<!--Categories Start-->
+			<div class="wt-haslayout wt-main-section">
+				<div class="wt-contentwrappers">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-12 float-left">
+								<div class="wt-howitwork-hold wt-bgwhite wt-haslayout">
+									<ul class="wt-navarticletab wt-navarticletabvtwo nav navbar-nav">
+										<li class="nav-item">
+											<a class="active" id="all-tab" data-toggle="tab" href="#forhiring">For Hiring</a>
+										</li>
+										<li class="nav-item">
+											<a id="business-tab" data-toggle="tab" href="#forfreelancing">For Freelancing</a>
+										</li>
+										<li class="nav-item">
+											<a id="trading-tab" data-toggle="tab" href="#faq">FAQ</a>
+										</li>
+									</ul>
+									<div class="tab-content wt-haslayout">
+										<div class="wt-contentarticle tab-pane active fade show" id="forhiring">
+											<div class="row">
+												<div class="wt-starthiringhold wt-innerspace wt-haslayout">
+													<div class="col-12 col-sm-12 col-md-12 col-lg-7 float-left">
+														<div class="wt-starthiringcontent">
+															<div class="wt-sectionhead">
+																<div class="wt-sectiontitle">
+																	<h2>How To Start Hiring</h2>
+																	<span>Start Today For a Great Future</span>
+																</div>
+																<div class="wt-description">
+																	<p>Once you’ve clicked Hire Freelancer or Hire Agency you’ll have the opportunity to update the offer to include the project title, description, and payment terms.</p>
+																</div>
+															</div>
+															<ul class="wt-accordionhold accordion">
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingOne" data-toggle="collapse" data-target="#collapseOne">
+																		<span>Change or Withdraw an Offer</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse show" id="collapseOne" aria-labelledby="headingOne">
+																		<div class="wt-title">
+																			<h3>Offers</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>If you changed your mind after making an offer, you can withdraw or change your offer so long as the freelancer or agency hasn’t already accepted it. This includes changing from hourly to fixed-price, or fixed-price to hourly
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingtwo" data-toggle="collapse" data-target="#collapsetwo">
+																		<span>What’s the difference between Fixed-price and Hourly contracts?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsetwo" aria-labelledby="headingtwo">
+																		<div class="wt-title">
+																			<h3>Digital Marketing</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				Hourly contracts are billed weekly based on time your freelancer logs in their work diary. Fixed-price contracts are billed by milestone and are based on deliverables. You make a payment in advance that we hold in escrow, then release payment when your freelancer completes a milestone
+																			</p>
+																		</div>
+																	
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingthreea" data-toggle="collapse" data-target="#collapsethree">
+																		<span>Will I be charged now?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsethree" aria-labelledby="headingthreea">
+																		<div class="wt-title">
+																			<h3>Charges</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				Hourly contracts are billed weekly based on time your freelancer logs in their work diary or any recurring weekly payment you have set up. Fixed-price contracts are billed by milestone and you must fund the first milestone before a project begins. Funds won’t be released to your freelancer until they submit the deliverable and you’ve had a chance to review. 
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col-12 col-sm-12 col-md-12 col-lg-5 float-right">
+														<div class="wt-howtoworkimg">
+															<figure>
+																<img src="{% static 'images/work/img-01.jpg' %}" alt="img description">
+															</figure>
+														</div>
+													</div>
+												</div>
+												<div class="wt-starthiringhold wt-innerspace wt-haslayout">
+													<div class="col-12 col-sm-12 col-md-12 col-lg-7 float-right">
+														<div class="wt-starthiringcontent">
+															<div class="wt-sectionhead">
+																<div class="wt-sectiontitle">
+																	<h2>Getting Into Business</h2>
+																	<span>Focus on Your Work &amp; Team</span>
+																</div>
+																<div class="wt-description">
+																	<p>You and your freelancer or agency can agree to new terms at any point or cancel a contract at any time and only be responsible for the hours or deliverables completed up to that point.</p>
+																</div>
+															</div>
+															<ul class="wt-accordionhold accordion">
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingtwo2" data-toggle="collapse" data-target="#collapsetwo2">
+																		<span>How is the payment information stored?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsetwo2" aria-labelledby="headingtwo2">
+																		<div class="wt-title">
+																			<h3>Payments</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				All your data is encrypted and secured with industry-standard transport layer security technology (TLS) and secure socket layer technology (SSL), as well as using HTTP strict transport security.
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingtwo4" data-toggle="collapse" data-target="#collapsetwo4">
+																		<span>When will the freelancer or agency be paid?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsetwo4" aria-labelledby="headingtwo4">
+																		<div class="wt-title">
+																			<h3>Agency</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				Hourly contracts are billed on Monday and you have until Friday to review your freelancer’s work. Assuming there are no issues, funds will be available to your freelancer or agency the following Wednesday.
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingthree2" data-toggle="collapse" data-target="#collapsethree2">
+																		<span>What is manual time?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsethree2" aria-labelledby="headingthree2">
+																		<div class="wt-title">
+																			<h3>Manual Time</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				Manual time allows freelancers to log activity, including activity that isn’t recorded by the time tracking application (e.g. phone calls, pencil sketching, responding to messages from mobile, etc.).
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col-12 col-sm-12 col-md-12 col-lg-5 float-left">
+														<div class="wt-howtoworkimg">
+															<figure>
+																<img src="{% static 'images/work/img-02.jpg' %}" alt="img description">
+															</figure>
+														</div>
+													</div>
+												</div>
+												<div class="wt-starthiringhold wt-innerspace wt-haslayout">
+													<div class="col-12 col-sm-12 col-md-12 col-lg-7 float-left">
+														<div class="wt-starthiringcontent">
+															<div class="wt-sectionhead">
+																<div class="wt-sectiontitle">
+																	<h2>Making Serious Profit</h2>
+																	<span>Manage Your Profitable Account</span>
+																</div>
+																<div class="wt-description">
+																	<p>Milestone are a way to break up a project by deliverable. They can be used to divide a larger contract into more manageable chunks work.</p>
+																</div>
+															</div>
+															<ul class="wt-accordionhold accordion">
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingOne3" data-toggle="collapse" data-target="#collapseOne3">
+																		<span>What fees should I be aware of?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapseOne3" aria-labelledby="headingOne3">
+																		<div class="wt-title">
+																			<h3>Fees</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				In general, clients are charged a 3% payment processing and administration fee on all payments.
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingtwo3" data-toggle="collapse" data-target="#collapsetwo3">
+																		<span>What happens if the freelancer or agency doesn’t deliver?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsetwo3" aria-labelledby="headingtwo3">
+																		<div class="wt-title">
+																			<h3>Failure</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				You and your freelancer or agency can cancel a contract at any time and only be responsible for the hours or deliverables completed up to that point.
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingtwo3" data-toggle="collapse" data-target="#collapsetwo3">
+																		<span>What happens if the freelancer or agency doesn’t deliver?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsetwo3" aria-labelledby="headingtwo3">
+																		<div class="wt-title">
+																			<h3>Failure</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				You and your freelancer or agency can cancel a contract at any time and only be responsible for the hours or deliverables completed up to that point.
+																			</p>
+																		</div>
+																		
+																	</div>
+																	
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col-12 col-sm-12 col-md-12 col-lg-5 float-right">
+														<div class="wt-howtoworkimg">
+															<figure>
+																<img src="{% static 'images/work/img-03.jpg' %}" alt="img description">
+															</figure>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="wt-contentarticle tab-pane fade" id="forfreelancing">
+											<div class="row">
+												<div class="wt-starthiringhold wt-innerspace wt-haslayout">
+													<div class="col-12 col-sm-12 col-md-12 col-lg-7 float-right">
+														<div class="wt-starthiringcontent">
+															<div class="wt-sectionhead">
+																<div class="wt-sectiontitle">
+																	<h2>How To Start Hiring</h2>
+																	<span>Start Today For a Great Future</span>
+																</div>
+																<div class="wt-description">
+																	<p>It is acceptable for you as a client to request that a freelancer sign an external non-disclosure agreement (NDA) which can be included as one of the job terms on the platform. However, please note that the agreement you provide is strictly between the freelancer and your company and will not be enforced by Upwork.</p>
+																</div>
+															</div>
+															<ul class="wt-accordionhold accordion">
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingOneq" data-toggle="collapse" data-target="#collapseOneq">
+																		<span>Why would I use this instead of my current method?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapseOneq" aria-labelledby="headingOneq">
+																		<div class="wt-title">
+																			<h3>Current Method</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				With Direct Contracts, you and the freelancer get escrow protection in addition to the ability to easily make payments through Upwork. Freelancers feel assured because you’ve deposited the project funds into a third-party escrow partner and you don’t have to worry about paying for a project that doesn’t get completed or filing tax forms. If during the contract you want to cancel it, you can request to cancel and get your funds returned back to you.
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingtwoq" data-toggle="collapse" data-target="#collapsetwoq">
+																		<span>Do I have to create an Upwork account?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsetwoq" aria-labelledby="headingtwoq">
+																		<div class="wt-title">
+																			<h3>Account</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				No, you will not have to create an Upwork account. Any time action is needed on your part we will send you an email and link to the webpage where you can take the needed action.
+																			</p>
+																		</div>
+																		
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingthreeq" data-toggle="collapse" data-target="#collapsethreeq">
+																		<span>Can I set up a Direct Contract with anyone, anywhere in the world?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsethreeq" aria-labelledby="headingthreeq">
+																		<div class="wt-title">
+																			<h3>Direct Contract</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				Currently, Direct Contracts are only available to freelancers and their clients in certain countries. If you attempt to sign up and you or your client are not eligible due to the country you live in, you’ll see this message: “We’re sorry to inform you that Direct Contracts are currently not available in your country.” We hope to expand Direct Contracts to more countries in the future.
+																			</p>
+																		</div>
+																		<div class="wt-likeunlike">
+																			<span>Did you find this useful?</span>
+																			<a href="javascript:void(0);" class="wt-like"><i class="fa fa-thumbs-up"></i></a>
+																			<a href="javascript:void(0);" class="wt-unlike"><i class="fa fa-thumbs-down"></i></a>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col-12 col-sm-12 col-md-12 col-lg-5 float-left">
+														<div class="wt-howtoworkimg">
+															<figure>
+																<img src="{% static 'images/work/img-01.jpg' %}" alt="img description">
+															</figure>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="wt-contentarticle tab-pane fade" id="faq">
+											<div class="row">
+												<div class="wt-starthiringhold wt-innerspace wt-haslayout">
+													<div class="col-12 col-sm-12 col-md-12 col-lg-7 float-left">
+														<div class="wt-starthiringcontent">
+															<div class="wt-sectionhead">
+																<div class="wt-sectiontitle">
+																	<h2>How To Start Hiring</h2>
+																	<span>Start Today For a Great Future</span>
+																</div>
+																<div class="wt-description">
+																	<p>Dotem eiusmod tempor incune utnaem labore etdolore maigna aliqua eniina ilukita ylokem lokateise ination voluptate velite esse cillum dolore eu fugnulla pariatur lokaim urianewce animid learn <a href="javascript:void(0);">more</a></p>
+																</div>
+															</div>
+															<ul class="wt-accordionhold accordion">
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingOnea" data-toggle="collapse" data-target="#collapseOnea">
+																		<span>Nostrud exercitation ullamco laboris nisi ut aliquip?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapseOnea" aria-labelledby="headingOne">
+																		<div class="wt-title">
+																			<h3>Digital Marketing</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				Consectetur adipisicing elit sed aeiusmisuod tempor incididunt labore dolore ma alaeiqua enim ade minim veniam quis nostr xecitation ullamcoaris nisi ut aliquipa extaea coedmmmodo equate irure dolawor in reprehenderit.
+																			</p>
+																		</div>
+																		<div class="wt-likeunlike">
+																			<span>Did you find this useful?</span>
+																			<a href="javascript:void(0);" class="wt-like"><i class="fa fa-thumbs-up"></i></a>
+																			<a href="javascript:void(0);" class="wt-unlike"><i class="fa fa-thumbs-down"></i></a>
+																		</div>
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingtwoa" data-toggle="collapse" data-target="#collapsetwoa">
+																		<span>Commodo consequat aute irure dolor in reprehenderit in voluptate velit?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsetwoa" aria-labelledby="headingtwoa">
+																		<div class="wt-title">
+																			<h3>Digital Marketing</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				Consectetur adipisicing elit sed aeiusmisuod tempor incididunt labore dolore ma alaeiqua enim ade minim veniam quis nostr xecitation ullamcoaris nisi ut aliquipa extaea coedmmmodo equate irure dolawor in reprehenderit.
+																			</p>
+																		</div>
+																		<div class="wt-likeunlike">
+																			<span>Did you find this useful?</span>
+																			<a href="javascript:void(0);" class="wt-like"><i class="fa fa-thumbs-up"></i></a>
+																			<a href="javascript:void(0);" class="wt-unlike"><i class="fa fa-thumbs-down"></i></a>
+																		</div>
+																	</div>
+																</li>
+																<li>
+																	<div class="wt-accordiontitle collapsed" id="headingthree" data-toggle="collapse" data-target="#collapsethreea">
+																		<span>Cillum dolore eu fugiat nulla pariatur?</span>
+																	</div>
+																	<div class="wt-accordiondetails collapse" id="collapsethreea" aria-labelledby="headingthree">
+																		<div class="wt-title">
+																			<h3>Digital Marketing</h3>
+																		</div>
+																		<div class="wt-description">
+																			<p>
+																				Consectetur adipisicing elit sed aeiusmisuod tempor incididunt labore dolore ma alaeiqua enim ade minim veniam quis nostr xecitation ullamcoaris nisi ut aliquipa extaea coedmmmodo equate irure dolawor in reprehenderit.
+																			</p>
+																		</div>
+																		<div class="wt-likeunlike">
+																			<span>Did you find this useful?</span>
+																			<a href="javascript:void(0);" class="wt-like"><i class="fa fa-thumbs-up"></i></a>
+																			<a href="javascript:void(0);" class="wt-unlike"><i class="fa fa-thumbs-down"></i></a>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col-12 col-sm-12 col-md-4 col-lg-5 float-right">
+														<div class="wt-howtoworkimg">
+															<figure>
+																<img src="{% static 'images/work/img-01.jpg' %}" alt="img description">
+															</figure>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Limitless Experience End-->
+		</main>
+		<!--Main End-->
+		<!--Footer Start-->
+		<footer id="wt-footer" class="wt-footer wt-haslayout">
+			<div class="wt-footerholder wt-haslayout">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+							<div class="wt-footerlogohold">
+								<strong class="wt-logo"><a href="index-2.html"><img src="{% static 'images/flogo.png" alt="company logo here"></a></strong>
+								<div class="wt-description">
+									<p>Dotem eiusmod tempor incune utnaem labore etdolore maigna aliqua enim poskina ilukita ylokem lokateise ination voluptate velit esse cillum dolore eu fugiat nulla pariatur lokaim urianewce <a href="javascript:void(0);">more...</a></p>
+								</div>
+								<ul class="wt-socialiconssimple wt-socialiconfooter">
+									<li class="wt-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook-f"></i></a></li>
+									<li class="wt-twitter"><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+									<li class="wt-youtube"><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+									<li class="wt-instagram"><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+									<li class="wt-googleplus"><a href="javascript:void(0);"><i class="fab fa-google-plus-g"></i></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="wt-footercol wt-widgetcompany">
+								<div class="wt-fwidgettitle">
+									<h3>Company</h3>
+								</div>
+								<ul class="wt-fwidgetcontent">
+									<li><a href="javascript:void(0);">About Us</a></li>
+									<li><a href="javascript:void(0);">How It Works</a></li>
+									<li><a href="javascript:void(0);">Careers</a></li>
+									<li><a href="javascript:void(0);">Terms &amp; Conditions</a></li>
+									<li><a href="javascript:void(0);">Trust &amp; Safety</a></li>
+									<li class="wt-viewmore"><a href="javascript:void(0);">+ View All</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="wt-footercol wt-widgetexplore">
+								<div class="wt-fwidgettitle">
+									<h3>Explore More</h3>
+								</div>
+								<ul class="wt-fwidgetcontent">
+									<li><a href="javascript:void(0);">Freelancers in USA</a></li>
+									<li><a href="javascript:void(0);">Freelancers in Canada</a></li>
+									<li><a href="javascript:void(0);">Freelancers in Australia</a></li>
+									<li><a href="javascript:void(0);">Jobs in USA</a></li>
+									<li><a href="javascript:void(0);">Find Jobs</a></li>
+									<li class="wt-viewmore"><a href="javascript:void(0);">+ View All</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wt-haslayout wt-joininfo">
+				<div class="container">
+					<div class="row justify-content-md-center">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 push-lg-1">
+							<div class="wt-companyinfo">
+								<span><a href="javascript:void(0);">New @ Worktern?</a> Dotem eiusmod tempor incune utnaem labore etdolore.</span>
+							</div>
+							<div class="wt-fbtnarea">
+								<a href="javascript:void(0)" class="wt-btn">Join Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wt-haslayout wt-footerbottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p class="wt-copyrights"><span>Worktern.</span> © 2018 All Rights Reserved.</p>
+							<nav class="wt-addnav">
+								<ul>
+									<li><a href="javascript:void(0);">News</a></li>
+									<li><a href="javascript:void(0);">Terms &amp; Conditions</a></li>
+									<li><a href="javascript:void(0);">Privacy Policy</a></li>
+									<li><a href="javascript:void(0);">Career</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!--Footer End-->
+		<!--Content Wrapper End-->
+	</div>
+	<!--Wrapper End-->
+	<script src="{% static 'js/vendor/jquery-3.3.1.js' %}"></script>
+	<script src="{% static 'js/vendor/jquery-library.js' %}"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/chosen.jquery.js' %}"></script>
+	<script src="{% static 'js/tilt.jquery.js' %}"></script>
+	<script src="{% static 'js/scrollbar.min.js' %}"></script>
+	<script src="{% static 'js/prettyPhoto.js' %}"></script>
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script src="{% static 'js/readmore.js' %}"></script>
+	<script src="{% static 'js/countTo.js' %}"></script>
+	<script src="{% static 'js/appear.js' %}"></script>
+	<script src="{% static 'js/tipso.js' %}"></script>
+	<script src="{% static 'js/jRate.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+
+</html>

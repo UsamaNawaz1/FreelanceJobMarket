@@ -1,0 +1,320 @@
+{% load static %}
+
+<!doctype html>
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang=""> <!--<![endif]-->
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Create Milestone</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png' %}">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+	<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'css/scrollbar.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontawesome/fontawesome-all.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+	<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/tipso.css' %}">
+	<link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+	<link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/color.css' %}">
+	<link rel="stylesheet" href="{% static 'css/transitions.css' %}">
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+	<script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+    
+</head>
+<body class="wt-login">
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<!-- Preloader Start -->
+	<div class="preloader-outer">
+		<div class="loader"></div>
+	</div>
+	<!-- Preloader End -->
+	<!-- Wrapper Start -->
+	<div id="wt-wrapper" class="wt-wrapper wt-haslayout">
+		<!-- Content Wrapper Start -->
+		<div class="wt-contentwrapper">
+			<!-- Header Start -->
+			{% include 'accounts/header.html' %}
+			<!--Header End-->
+			<!--Inner Home Banner Start-->
+			<div class="wt-haslayout wt-innerbannerholder">
+				<div class="container">
+					<div class="row justify-content-md-center">
+						<div class="col-xs-12 col-sm-12 col-md-8 push-md-2 col-lg-6 push-lg-3">
+							<div class="wt-innerbannercontent">
+							<div class="wt-title"><h2>Job Detail</h2></div>
+							<ol class="wt-breadcrumb">
+								<li><a href="index-2.html">Home</a></li>
+								<li><a href="javascript:void(0);">Jobs</a></li>
+								<li class="wt-active">Job Detail</li>
+							</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Inner Home End-->
+			<!--Main Start-->
+			<main id="wt-main" class="wt-main wt-haslayout wt-innerbgcolor">
+				<div class="wt-haslayout wt-main-section">
+					<!-- User Listing Start-->
+					<div class="container">
+						<div class="row">
+							<div id="wt-twocolumns" class="wt-twocolumns wt-haslayout">
+								<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left">
+									<div class="wt-proposalholder">
+										<span class="wt-featuredtag"><img src="{% static 'images/featured.png' %}" alt="img description" data-tipso="Plus Member" class="template-content tipso_style"></span>
+										<div class="wt-proposalhead">
+											<h2>{{job.jobTitle}}</h2>
+											<ul class="wt-userlisting-breadcrumb wt-userlisting-breadcrumbvtwo">
+												<li><span><i class="fa fa-dollar-sign"></i><i class="fa fa-dollar-sign"></i><i class="fa fa-dollar-sign"></i> {{job.experience}}</span></li>
+												<li><span>{{job.created_by.userprofile.country}}</span></li>
+												<li><span><i class="far fa-folder"></i> Type: Fixed</span></li>
+												<li><span><i class="far fa-clock"></i> Duration: {{job.duration}}</span></li>
+											</ul>
+										</div>
+                                        
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 float-left">
+									<div class="wt-projectdetail-holder">
+										<div class="wt-projectdetail">
+											<div class="wt-title">
+												<h3>Create Milestone</h3>
+											</div>
+											<div class="wt-description">
+												<p>{{job.amount}}</p>
+											</div>
+                                            <div  style="padding: 60px;">
+                                                {% if request.user == job.created_by %}
+                                                <button style="width: 100%;" class="wt-btn"  type="submit" id="checkout-button">Pay with Card</button><br><br>
+                                                <div id="paypal-button-container"></div>
+                                                {% endif %}
+                                            </div>
+                                            
+
+										</div>
+										
+										
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 float-left">
+									<aside id="wt-sidebar" class="wt-sidebar">
+										<div class="wt-proposalsr">
+											<div class="wt-proposalsrcontent">
+												<span class="wt-proposalsicon"><i class="fa fa-angle-double-down"></i><i class="fa fa-newspaper"></i></span>
+												<div class="wt-title">
+													<h3>${{winner.amount}}</h3>
+													<span>Amount to be Paid</span>
+												</div>
+											</div>
+											
+											
+										</div>
+										<div class="wt-widget wt-companysinfo-jobsingle">
+											<div class="wt-companysdetails">
+												<figure class="wt-companysimg">
+													<img src="{% static 'images/company/img-01.jpg' %}" alt="img description">
+												</figure>
+												<div class="wt-companysinfo">
+													<figure><img src="{% static 'images/company/img-01.png' %}" alt="img description"></figure>
+													<div class="wt-title">
+														<a href="javascript:void(0);"><i class="fa fa-check-circle"></i> Verified Company</a>
+														<h2>{{job.created_by.userprofile.first_name}} {{job.created_by.userprofile.last_name}}</h2>
+													</div>
+													
+												</div>
+											</div>
+										</div>
+										
+										<div class="wt-widget wt-reportjob">
+											<div class="wt-widgettitle">
+												<h2>Report This Job</h2>
+											</div>
+											<div class="wt-widgetcontent">
+												<form class="wt-formtheme wt-formreport">
+													<fieldset>
+														<div class="form-group">
+															<span class="wt-select">
+																<select>
+																	<option value="Reason">Select Reason</option>
+																	<option value="Reason1">Reason 1</option>
+																	<option value="Reason2">Reason 2</option>
+																</select>
+															</span>
+														</div>
+														<div class="form-group">
+															<textarea class="form-control" placeholder="Description"></textarea>
+														</div>
+														<div class="form-group wt-btnarea">
+															<a href="javascrip:void(0);" class="wt-btn">Submit</a>
+														</div>
+													</fieldset>
+												</form>
+											</div>
+										</div>
+									</aside>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- User Listing End-->
+				</div>
+			</main>
+			<!--Main End-->
+			<!--Footer Start-->
+			{% include 'accounts/footer.html' %}
+			<!--Footer End-->
+		</div>
+		<!--Content Wrapper End-->
+	</div>
+    
+	<!--Wrapper End-->
+	<script src="{% static 'js/vendor/jquery-3.3.1.js' %}"></script>
+	<script src="{% static 'js/vendor/jquery-library.js' %}"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/chosen.jquery.js' %}"></script>
+	<script src="{% static 'js/tilt.jquery.js' %}"></script>
+	<script src="{% static 'js/scrollbar.min.js' %}"></script>
+	<script src="{% static 'js/prettyPhoto.js' %}"></script>
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script src="{% static 'js/readmore.js' %}"></script>
+	<script src="{% static 'js/countTo.js' %}"></script>
+	<script src="{% static 'js/appear.js' %}"></script>
+	<script src="{% static 'js/tipso.js' %}"></script>
+	<script src="{% static 'js/jRate.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+<script src="https://www.paypal.com/sdk/js?client-id=ATOXIH6vsRdWNEDBCjuCqU25JGQT9jg3_ge_TE4aXe9DojFW_BIt_KypUkjPaOPO8LMP_PZy02lNSwfz&currency=USD&disable-funding=credit,card"></script>
+
+<script>
+
+    function getCookie(name) {
+       var cookieValue = null;
+       if (document.cookie && document.cookie !== '') {
+           var cookies = document.cookie.split(';');
+           for (var i = 0; i < cookies.length; i++) {
+               var cookie = cookies[i].trim();
+               // Does this cookie string begin with the name we want?
+               if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                   cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                   break;
+               }
+           }
+       }
+          return cookieValue;
+      }
+      var csrftoken = getCookie('csrftoken');
+
+     
+
+      function completeOrder(){
+          var url = "{% url 'paypal_complete' %}"
+
+          fetch(url, {
+              method:'POST',
+              headers:{
+                  'Content-type':'application/json',
+                  'X-CSRFToken':csrftoken,
+              },
+              body:JSON.stringify({'job_id':"{{job.id}}", 'winner_id':"{{winner.id}}"})
+          })
+      }
+
+
+      // Render the PayPal button into #paypal-button-container
+      paypal.Buttons({
+
+          // Set up the transaction
+          createOrder: function(data, actions) {
+              return actions.order.create({
+                  purchase_units: [{ 
+                      amount: {
+                          value: "{{winner.amount}}"
+                      }
+                  }]
+              });
+          },
+
+          // Finalize the transaction
+          onApprove: function(data, actions) {
+              return actions.order.capture().then(function(details) {
+                  // Show a success message to the buyer
+                  completeOrder()
+                  alert('Transaction completed by ' + details.payer.name.given_name + '!');
+              });
+          }
+
+
+      }).render('#paypal-button-container');
+  </script>
+
+
+
+
+<script type="text/javascript">
+    // Create an instance of the Stripe object with your publishable API key
+    function getCookie(name) {
+         var cookieValue = null;
+         if (document.cookie && document.cookie !== '') {
+             var cookies = document.cookie.split(';');
+             for (var i = 0; i < cookies.length; i++) {
+                 var cookie = cookies[i].trim();
+                 // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+             }
+         }
+            return cookieValue;
+        }
+    var csrftoken = getCookie('csrftoken');
+    var stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
+    var checkoutButton = document.getElementById("checkout-button");
+    checkoutButton.addEventListener("click", function () {
+      fetch("{% url 'create-checkout-session' job.id winner.id %}", {
+        method: "POST",
+        headers: {
+            'X-CSRFToken': csrftoken
+        }
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (session) {
+          return stripe.redirectToCheckout({ sessionId: session.id });
+        })
+        .then(function (result) {
+          // If redirectToCheckout fails due to a browser or network
+          // error, you should display the localized error message to your
+          // customer using error.message.
+          if (result.error) {
+            alert(result.error.message);
+          }
+        })
+        .catch(function (error) {
+          console.error("Error:", error);
+        });
+    });
+  </script>
+
+</html>

@@ -1,0 +1,81 @@
+{% load static %}
+<header id="wt-header" class="wt-header wt-haslayout">
+    <div class="wt-navigationarea">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <strong class="wt-logo"><a href="{% url 'home' %}"><img width="60%" src="{% static 'images/logo_main.png' %}" alt="company logo here"></a></strong>
+                    <div class="wt-rightarea">
+                        <nav id="wt-nav" class="wt-nav navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="lnr lnr-menu"></i>
+                            </button>
+                            <div class="collapse navbar-collapse wt-navigation" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="menu-item-has-children page_item_has_children">
+                                        <a href="{% url 'home' %}">Home</a>
+                                        
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'how_work' %}">How It Works</a>
+                                    </li>
+                                    <li class="menu-item-has-children page_item_has_children">
+                                        <a href="{% url 'jobs' %}">Browse Jobs</a>
+                                        
+                                    </li>
+                                    <li class="menu-item-has-children page_item_has_children">
+                                        <a href="{% url 'view_freelancers' %}">View Freelancers</a>
+                                        
+                                    </li>
+                                    <li class="menu-item-has-children page_item_has_children">
+                                        <a href="{% url 'about' %}">About Us</a>
+                                        
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </nav>
+                        
+                        {% if request.user.is_authenticated %}
+                            <div class="wt-userlogedin">
+                                <figure class="wt-userimg">
+                                    <img src="{% static 'images/freelancer_1.jpg' %}" alt="image description">
+                                </figure>
+                                <div class="wt-username">
+                                    <h3>{{request.user.userprofile.first_name}} {{request.user.userprofile.last_name}}</h3>
+                                    <span>{{request.user.userprofile.tag_line}}</span>
+                                </div>
+                                <nav class="wt-usernav">
+                                    <ul>
+                                        
+                                        <li>
+                                            <a href="{% url 'freelancer' request.user.userprofile.id %}">
+                                                <span>My Profile</span>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        
+                                        <li>
+                                            <a href="{% url 'user_account' %}">
+                                                <span>Account Settings</span>
+                                            </a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="{% url 'logout' %}">
+                                                <span>Logout</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            {% else %}
+                                <a  href="{% url 'register' %}" class="wt-btn">Join Now</a>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

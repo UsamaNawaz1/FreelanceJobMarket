@@ -1,0 +1,79 @@
+{% load static %}
+
+<footer id="wt-footer" class="wt-footer wt-haslayout">
+    <div class="wt-footerholder wt-haslayout">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="wt-footerlogohold">
+                        <strong class="wt-logo"><a href="index-2.html"><img width="80%" src="{% static 'images/logo_footer.png' %}" alt="company logo here"></a></strong>
+                        <div class="wt-description">
+                            <p>KaamShaam is a Pakistani freelance marketplace website, which allows potential employers to post jobs that freelancers can then bid to complete. Founded in 2021, its headquarters is located in GIKI, KPK, though it also has offices in Lahore, Faisalabad, Multan, Islamabad, and Karachi.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                    
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="wt-footercol wt-widgetexplore">
+                        <div class="wt-fwidgettitle">
+                            <h3>Explore More</h3>
+                        </div>
+                        <ul class="wt-fwidgetcontent">
+                            <li><a href="{% url 'view_freelancers' %}">View Freelancers</a></li>
+                            <li><a href="{% url 'jobs' %}">Browse Jobs</a></li>
+                            <li><a href="{% url 'how_work' %}">How it Works</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                           
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wt-haslayout wt-joininfo">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                {% if not request.user.is_authenticated %}
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 push-lg-1">
+                        <div class="wt-companyinfo">
+                            <span><a href="javascript:void(0);">New @ KaamShaam?</a> Join Now to get projects and meet expectional talent.</span>
+                        </div>
+                        <div class="wt-fbtnarea">
+                            <a href="{% url 'register' %}" class="wt-btn">Join Now</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 push-lg-1">
+                        <div class="wt-companyinfo">
+                            <span><a href="javascript:void(0);">{{request.user.userprofile.first_name}} {{request.user.userprofile.last_name}}</a> - You are doing great! keep it Up!</span>
+                        </div>
+                        <div class="wt-fbtnarea">
+                            <a href="{% url 'logout' %}" class="wt-btn">Logout</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="wt-haslayout wt-footerbottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    
+                    <nav class="wt-addnav">
+                        <ul>
+                            <li><a href="{% url 'view_freelancers' %}">View Freelancers</a></li>
+                            <li><a href="{% url 'jobs' %}">Browse Jobs</a></li>
+                            <li><a href="{% url 'how_work' %}">How it Works</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

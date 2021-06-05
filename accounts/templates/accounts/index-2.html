@@ -1,0 +1,165 @@
+{% load static %}
+
+<!doctype html>
+
+
+{% include 'accounts/head.html' %}
+
+<body class="wt-login">
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<!-- Preloader Start -->
+	<div class="preloader-outer">
+		<div class="loader"></div>
+	</div>
+	<!-- Preloader End -->
+	<!-- Wrapper Start -->
+	<div id="wt-wrapper" class="wt-wrapper wt-haslayout">
+		<!-- Content Wrapper Start -->
+		<div class="wt-contentwrapper">
+			<!-- Header Start -->
+				{% include 'accounts/header.html' %}
+			<!--Header End-->
+			<!--Home Banner Start-->
+			
+			<div class="wt-haslayout wt-bannerholder">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-5">
+							<div class="wt-bannerimages">
+								<figure class="wt-bannermanimg" data-tilt>
+									<img src="{% static 'images/bannerimg/img-01.png' %}" alt="img description">
+									<img src="{% static 'images/bannerimg/img-02.png' %}" class="wt-bannermanimgone" alt="img description">
+									<img src="{% static 'images/bannerimg/img-03.png' %}" class="wt-bannermanimgtwo" alt="img description">
+								</figure>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
+							<div class="wt-bannercontent">
+								<div class="wt-bannerhead" style="margin-bottom: 5%; margin-top: 5%;">
+									<div class="wt-title">
+										<h1><span>Hire expert freelancers</span> for any job, Online</h1>
+									</div>
+									<div class="wt-description">
+										<p>KaamShaam connects businesses with freelancers, independent talent, and agencies around the globe.</p>
+									</div>
+									<div class="wt-updatall">
+										{% if request.user.is_authenticated %}
+											<a  href="{% url 'view_freelancers'  %}"  class="wt-btn" >View Freelancers</a>
+										{% else %}
+											<a href="{% url 'register' %}"   class="wt-btn" >Register Now</a>
+										{% endif %}
+										<a style="margin-left:7px;" href="{% url 'jobs' %}"  class="wt-btn" >Find Jobs</a>
+									</div>
+								</div>
+								
+								<div class="wt-videoholder">
+									<div class="wt-videoshow">
+										<a data-rel="prettyPhoto[video]" href="https://www.youtube.com/watch?v=J37W6DjqT3Q"><i class="fa fa-play"></i></a>
+									</div>
+									<div class="wt-videocontent">
+										<span>See For Yourself!<em>How it works &amp; experience the ultimate joy.</em></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Home Banner End-->
+			<!--Main Start-->
+			<main id="wt-main" class="wt-main wt-haslayout">
+				<!--Categories Start-->
+				
+				<!--Categories End-->
+				<!--Join Company Info Start-->
+				<section class="wt-haslayout wt-main-section wt-paddingnull wt-companyinfohold">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="wt-companydetails">
+									<div class="wt-companycontent">
+										<div class="wt-companyinfotitle">
+											<h2>Start As Company</h2>
+										</div>
+										<div class="wt-description">
+											<p>If each of us hires people who are smaller than we are, we shall become a company of dwarfs. But if each of us hires people who are bigger than we are, we shall become a company of giants.</p>
+										</div>
+										<div class="wt-btnarea">
+											<a href="{% url 'register' %}" class="wt-btn">Join Now</a>
+										</div>
+									</div>
+									<div class="wt-companycontent">
+										<div class="wt-companyinfotitle">
+											<h2>Start As Freelancer</h2>
+										</div>
+										<div class="wt-description">
+											<p>Do not let arrogance go to your head and despair to your heart; do not let compliments go to your head and criticisms to your heart; do not let success go to your head and failure to your heart.</p>
+										</div>
+										<div class="wt-btnarea">
+											<a href="{% url 'register' %}" class="wt-btn">Join Now</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!--Join Company Info End-->
+				<!--Limitless Experience Start-->
+				<section class="wt-haslayout wt-main-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-6 col-lg-6 float-left">
+								<figure class="wt-mobileimg">
+									<img src="{% static 'images/mobile-img.png' %}" alt="img description">
+								</figure>
+							</div>
+							<div class="col-12 col-sm-12 col-md-6 col-lg-6 float-left">
+								<div class="wt-experienceholder">
+									<div class="wt-sectionhead">
+										<div class="wt-sectiontitle">
+											<h2>Limitless Experience</h2>
+											<span>Roam Around With Your Business</span>
+										</div>
+										<div class="wt-description">
+											<p>KaamShaam allows clients to interview, hire and work with freelancers and freelance agencies through the company's platform. The client posts a description of their job and a price range they are willing to pay for a freelancer to complete it. The client may invite specific freelancers to apply for their jobs, or else post the job for any freelancer who is interested to apply.</p>
+											<p>The client then "interviews" likely freelancers by reviewing their profiles and rankings, or even reaching out via chat to ask questions. Once the client has chosen who they want to complete the job, they hire that freelancer by sending a contract with set hours, pay rate, and a deadline for the work to be completed.</p>
+											
+										</div>
+										<ul class="wt-appicon">
+											<li>
+												<a href="{% url 'coming_soon' %}">
+													<figure><img src="{% static 'images/app-icon/img-01.png' %}" alt="img description"></figure>
+												</a>
+											</li>
+											<li>
+												<a href="{% url 'coming_soon' %}">
+													<figure><img src="{% static 'images/app-icon/img-02.png' %}" alt="img description"></figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!--Limitless Experience End-->
+				<!--Skills Start-->
+				
+				<!--Skills Start End-->
+			</main>
+			<!--Main End-->
+			<!--Footer Start-->
+				{% include 'accounts/footer.html' %}
+			<!--Footer End-->
+		</div>
+		<!--Content Wrapper End-->
+	</div>
+	<!--Wrapper End-->
+	{% include 'accounts/script.html' %}
+</body>
+
+</html>

@@ -1,0 +1,471 @@
+{% load static %}
+
+<!doctype html>
+<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->	<html class="no-js" lang=""> <!--<![endif]-->
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>User Account</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'css/scrollbar.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontawesome/fontawesome-all.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+	<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/tipso.css' %}">
+	<link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+	<link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+	<link rel="stylesheet" href="{% static 'css/color.css' %}">
+	<link rel="stylesheet" href="{% static 'css/transitions.css' %}">
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+	<link rel="stylesheet" href="{% static 'css/dbresponsive.css' %}">
+	<script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+</head>
+<body class="wt-login">
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<!-- Preloader Start -->
+	<div class="preloader-outer">
+		<div class="loader"></div>
+	</div>
+	<!-- Preloader End -->
+	<!-- Wrapper Start -->
+	<div id="wt-wrapper" class="wt-wrapper wt-haslayout">
+		<!-- Content Wrapper Start -->
+		<div class="wt-contentwrapper">
+			<!-- Header Start -->
+			{% include 'accounts/header.html' %}
+			<!--Header End-->
+			<!--Main Start-->
+			<main id="wt-main" class="wt-main wt-haslayout">
+				<!--Sidebar Start-->
+				<div id="wt-sidebarwrapper" class="wt-sidebarwrapper">
+					<div id="wt-btnmenutoggle" class="wt-btnmenutoggle">
+						<span class="menu-icon">
+							<em></em>
+							<em></em>
+							<em></em>
+						</span>
+					</div>
+					<div id="wt-verticalscrollbar" class="wt-verticalscrollbar">
+						<div class="wt-companysdetails wt-usersidebar">
+							<figure class="wt-companysimg">
+								<img src="{% static 'images/sidebar/img-01.jpg' %}" alt="img description">
+							</figure>
+							<div class="wt-companysinfo">
+								
+								<div class="wt-title">
+									<h2><a href="javascript:void(0);"> {{request.user.userprofile.first_name}} {{request.user.userprofile.last_name}}</a></h2>
+									<span>{{request.user.userprofile.tag_line}}</span>
+								</div>
+                                {% if request.user.userprofile.is_employer %}
+								    <div class="wt-btnarea"><a href="{% url 'addJobs' %}" class="wt-btn">Post a Job</a></div>
+								{% else %}
+								<div class="wt-btnarea"><a href="#" class="wt-btn">${{request.user.userprofile.balance}} USD</a></div>
+                                {% endif %}
+							</div>
+						</div>
+						<nav id="wt-navdashboard" class="wt-navdashboard">
+							<ul>
+								
+								<li class="wt-active">
+									<a href="{% url 'freelancer' request.user.userprofile.id %}">
+										<i class="ti-briefcase"></i>
+										<span>My Profile</span>
+									</a>
+								</li>
+                                {% if not request.user.userprofile.is_employer  %}
+                                    
+                                    <li>
+                                        <a href="{% url 'freelancer_proposal' %}">
+                                            <i class="ti-bookmark-alt"></i>
+                                            <span>Proposals</span>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{% url 'manage_jobs' %}">
+                                            <i class="ti-announcement"></i>
+                                            <span>Manage Jobs</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+								<li >
+									{% if not request.user.userprofile.is_employer and check %}
+										<a href="{% url 'message' proposal.on_job.id proposal.id %}">
+											<i class="ti-pencil-alt"></i>
+											<span>Messages</span>
+										</a>
+									
+									{% endif %}
+									
+								</li>
+								
+								
+								<li>
+									<a href="{% url 'user_account' %}">
+										<i class="ti-anchor"></i>
+										<span>Account Settings</span>
+									</a>
+								</li>
+								
+								<li>
+									<a href="{% url 'logout' %}">
+										<i class="ti-shift-right"></i>
+										<span>Logout</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="wt-navdashboard-footer">
+							<span>Kamshaam. © 2021 All Rights Reserved.</span>
+						</div>
+					</div>
+				</div>
+				<!--Sidebar Start-->
+				<!--Register Form Start-->
+				<section class="wt-haslayout">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-9">
+							<div class="wt-haslayout wt-dbsectionspace">
+								<div class="wt-dashboardbox wt-dashboardtabsholder">
+									<div class="wt-dashboardboxtitle">
+										<h2>My Profile</h2>
+									</div>
+									<div class="wt-dashboardtabs">
+										<ul class="wt-tabstitle nav navbar-nav">
+											<li class="nav-item">
+												<a class="active" data-toggle="tab" href="#wt-skills">Personal Details &amp; Skills</a>
+											</li>
+											<li class="nav-item"><a data-toggle="tab" href="#wt-education">Experience &amp; Education</a></li>
+											<li class="nav-item"><a data-toggle="tab" href="#wt-awards">Projects &amp; Awards</a></li>
+										</ul>
+									</div>
+									<div class="wt-tabscontent tab-content">
+										<div class="wt-personalskillshold tab-pane active fade show" id="wt-skills">
+											<div class="wt-yourdetails wt-tabsinfo">
+												<div class="wt-tabscontenttitle">
+													<h2>Your Details</h2>
+												</div>
+												<form method="POST" action="" class="wt-formtheme wt-userform">
+                                                    {% csrf_token %}
+													<fieldset>
+														
+														<div class="form-group form-group-half">
+															<input type="text" name="first_name" value="{{request.user.userprofile.first_name}}" class="form-control" >
+														</div>
+														<div class="form-group form-group-half">
+															<input type="text" name="last_name" value="{{request.user.userprofile.last_name}}"  class="form-control" placeholder="{{request.user.userprofile.last_name}}">
+														</div>
+														<div class="form-group ">
+															<input type="text" name="hourly_rate" value="{{request.user.userprofile.hourly_rate}}" class="form-control" placeholder="{{request.user.userprofile.hourly_rate}}">
+														</div>
+														<div class="form-group">
+															<input type="text" name="tag_line" value="{{request.user.userprofile.tag_line}}" class="form-control" placeholder="{{request.user.userprofile.tag_line}}">
+														</div>
+														<div class="form-group">
+															<textarea name="description" type="text" value="{{request.user.userprofile.description}}" class="form-control" placeholder="{{request.user.userprofile.description}}"></textarea>
+														</div>
+													</fieldset>
+                                                    <button type="submit" style="margin-top: 3%;float: right;" class="wt-btn" >Save &amp; Update</button>
+												</form>
+											</div>
+											
+											
+											
+											
+											
+											<div class="wt-skills">
+												<div class="wt-tabscontenttitle">
+													<h2>My Skills</h2>
+												</div>
+												<div class="wt-skillscontent-holder">
+													<form method="POST", action="{% url 'addSkills' request.user.id %}" class="wt-formtheme wt-skillsform">
+                                                        {% csrf_token %}
+														<fieldset>
+															<div class="form-group">
+																<div class="form-group-holder">
+																	<span class="wt-select">
+																		<select name="Skills">
+																			<option selected value="">Select Your Skill</option>
+																			
+																			<option value="PHP">PHP</option>
+																			<option value="JQUERY">JQUERY</option>
+                                                                            <option value="DJANGO">DJANGO</option>
+																		</select>
+																	</span>
+																	
+																</div>
+															</div>
+															<div class="form-group wt-btnarea">
+																<button type="submit" style="margin-top: 3%;float: right;" class="wt-btn" >Add Skill</button>
+															</div>
+														</fieldset>
+													</form>
+													<div class="wt-myskills">
+														<ul class="sortable list">
+                                                            {% for skill in skills %}
+                                                                <li>
+                                                                    <div class="wt-dragdroptool">
+                                                                        <a href="javascript:void(0)" class="lnr lnr-menu"></a>
+                                                                    </div>
+                                                                    <span class="skill-dynamic-html">{{skill.name}} </span>
+                                                                </li>
+                                                            {% endfor %}
+															
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+                                       
+										<div class="wt-educationholder tab-pane fade" id="wt-education">
+											<div class="wt-userexperience wt-tabsinfo">
+												<div class="wt-tabscontenttitle wt-addnew">
+													<h2>Add Your Experience</h2>
+													
+												</div>
+                                                <ul class="wt-experienceaccordion accordion">
+													<li>
+														
+														<div   >
+															<form method="POST" action="{% url 'addExperience' request.user.id %}" class="wt-formtheme wt-userform">
+                                                                {% csrf_token %}
+																<fieldset>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="company_name" class="form-control" placeholder="Company Title">
+																	</div>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="starting_date" class="form-control" placeholder="Starting Date">
+																	</div>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="ending_date" class="form-control" placeholder="Ending Date *">
+																	</div>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="job_title" class="form-control" placeholder="Your Job Title">
+																	</div>
+																	<div class="form-group">
+																		<textarea name="job_description" class="form-control" placeholder="Your Job Description"></textarea>
+																	</div>
+																	<div class="form-group">
+																		<span>* Leave ending date empty if its your current job</span>
+																	</div>
+																</fieldset>
+                                                                <div class="form-group wt-btnarea">
+                                                                    <button type="submit" style="margin-top: 3%;float: right;" class="wt-btn" >Add Experience</button>
+                                                                </div>
+															</form>
+														</div>
+													</li>
+                                                    
+													<li>
+                                                        {% for work in works %}
+                                                            <div class="wt-accordioninnertitle">
+                                                                <span id="accordioninnertitlea2" data-toggle="collapse" data-target="#innertitlea2">{{work.job_title}}  <em>({{work.starting_date}} - {{work.ending_date}})</em></span>
+                                                                
+                                                            </div>
+														{% endfor %}
+													</li>
+													
+												</ul>
+											</div>
+											<div class="wt-userexperience">
+												<div class="wt-tabscontenttitle wt-addnew">
+													<h2>Add Your Education</h2>
+													
+												</div>
+												<ul class="wt-experienceaccordion accordion">
+													<li>
+														
+														<div   >
+															<form method="POST" action="{% url 'addEducation' request.user.id %}" class="wt-formtheme wt-userform">
+                                                                {% csrf_token %}
+																<fieldset>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="school" class="form-control" placeholder="Institute">
+																	</div>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="starting_date" class="form-control" placeholder="Starting Date">
+																	</div>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="ending_date" class="form-control" placeholder="Ending Date *">
+																	</div>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="degree" class="form-control" placeholder="Program">
+																	</div>
+																	<div class="form-group">
+																		<textarea name="description" class="form-control" placeholder="Description"></textarea>
+																	</div>
+																	<div class="form-group">
+																		<span>* Leave ending date empty if you are currently enrolled in it!</span>
+																	</div>
+																</fieldset>
+                                                                <div class="form-group wt-btnarea">
+                                                                    <button type="submit" style="margin-top: 3%;float: right;" class="wt-btn" >Add Education</button>
+                                                                </div>
+															</form>
+														</div>
+													</li>
+                                                    <hr>
+													<li>
+														{% for learn in learning %}
+                                                            <div class="wt-accordioninnertitle">
+                                                                <span id="accordioninnertitlea2" data-toggle="collapse" data-target="#innertitlea2">{{learn.degree}}  <em>({{learn.starting_date}} - {{learn.ending_date}})</em></span>
+                                                                
+                                                            </div>
+														{% endfor %}
+														
+													</li>
+													
+												</ul>
+											</div>
+										</div>
+										<div class="wt-awardsholder tab-pane fade" id="wt-awards">
+											<div class="wt-addprojectsholder wt-tabsinfo">
+												<div class="wt-tabscontenttitle wt-addnew">
+													<h2>Add Your Projects</h2>
+													
+												</div>
+												<ul class="wt-experienceaccordion accordion">
+													<li>
+														{% for project in projects %}
+															<div class="wt-accordioninnertitle">
+																<div class="wt-projecttitle collapsed" data-toggle="collapse" data-target="#innertitleaone">
+																	<figure><img src="{% static 'images/thumbnail/img-11.jpg' %}" alt="img description"></figure>
+																	<h3>{{project.project_title}}<span>{{project.project_url}}</span></h3>
+																</div>
+															
+															</div>
+														{% endfor %}
+                                                        
+														<div style="margin-top: 20px;" id="innertitleaone">
+															<form method="POST" action="{% url 'addProject' request.user.id %}" class="wt-formtheme ">
+																{% csrf_token %}
+																<fieldset>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="project_title" class="form-control" placeholder="Project Title">
+																	</div>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="project_url" class="form-control" placeholder="Project URL">
+																	</div>
+																	
+																	
+																	<div class="form-group wt-btnarea">
+																		<button type="submit" style="margin-top: 3%;float: right;" class="wt-btn" >Add Project</button>
+																	</div>
+																</fieldset>
+															</form>
+														</div>
+													</li>
+													
+													
+												</ul>
+											</div>
+											<div class="wt-addprojectsholder">
+												<div class="wt-tabscontenttitle wt-addnew">
+													<h2>Add Your Awards</h2>
+													
+												</div>
+												<ul class="wt-experienceaccordion accordion">
+													<li>
+														{% for award in awards %}
+															<div class="wt-accordioninnertitle">
+																<div class="wt-projecttitle collapsed" data-toggle="collapse" data-target="#innertitleawone">
+																	<figure><img src="{% static 'images/thumbnail/img-08.jpg' %}" alt="img description"></figure>
+																	<h3>{{award.award_title}}<samp>{{award.award_date}}</samp></h3>
+																</div>
+																
+															</div>
+														{% endfor %}
+														<div style="margin-top: 20px;" id="innertitleaone">
+															<form method="POST" action="{% url 'addAward' request.user.id %}" class="wt-formtheme ">
+																{% csrf_token %}
+																<fieldset>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="award_title" class="form-control" placeholder="Award Title">
+																	</div>
+																	<div class="form-group form-group-half">
+																		<input type="text" name="award_date" class="form-control" placeholder="Awarded On">
+																	</div>
+																	
+																	
+																	<div class="form-group wt-btnarea">
+																		<button type="submit" style="margin-top: 3%;float: right;" class="wt-btn" >Add Award</button>
+																	</div>
+																</fieldset>
+															</form>
+														</div>
+													</li>
+													
+													
+												</ul>
+											</div>										
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+							<div class="wt-haslayout wt-dbsectionspace wt-codescansidebar">
+								
+								<div class="wt-companyad">
+									<figure class="wt-companyadimg"><img src="{% static 'images/add-img.jpg' %}" alt="img description"></figure>
+									<span>Advertisement  255px X 255px</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!--Register Form End-->
+			</main>
+			<!--Main End-->	
+		</div>
+		<!--Content Wrapper End-->
+	</div>
+	<!--Wrapper End-->
+	<script src="{% static 'js/vendor/jquery-3.3.1.js' %}"></script>
+	<script src="{% static 'js/vendor/jquery-library.js' %}"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCR-KEWAVCn52mSdeVeTqZjtqbmVJyfSus&amp;language=en"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.sortable.js' %}"></script>
+	<script src="{% static 'js/chosen.jquery.js' %}"></script>
+	<script src="{% static 'js/tilt.jquery.js' %}"></script>
+	<script src="{% static 'js/scrollbar.min.js' %}"></script>
+	<script src="{% static 'js/prettyPhoto.js' %}"></script>
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script src="{% static 'js/readmore.js' %}"></script>
+	<script src="{% static 'js/countTo.js' %}"></script>
+	<script src="{% static 'js/appear.js' %}"></script>
+	<script src="{% static 'js/tipso.js' %}"></script>
+	<script src="{% static 'js/gmap3.js' %}"></script>
+	<script src="{% static 'js/jRate.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	<script>
+		const menu_icon = document.querySelector('.menu-icon');
+		function addClassFunThree() {
+	        this.classList.toggle("click-menu-icon");
+	    }
+	    menu_icon.addEventListener('click', addClassFunThree);
+	</script>
+</body>
+
+
+</html>
